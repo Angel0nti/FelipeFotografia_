@@ -87,13 +87,14 @@
 .slider__images--btn {
   height: 7rem;
   width: 7rem;
-  max-width: 100%;
-  max-height: 100%;
   background-color: transparent;
   cursor: pointer;
-  border: none; /* Quita el borde */
+  border: none;
   border-radius: 50%;
   box-shadow: 0 0.5rem 1rem rgba(230, 230, 230, 0.535);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slider__images--btn:active {
@@ -103,8 +104,9 @@
 
 .slider__images--icon {
   fill: #fff;
-  width: 50%;
-  height: 50%;
+  width: 3.5rem; /* 50% de 7rem */
+  height: 3.5rem;
+  display: block;
 }
 .btn--left {
   grid-column: 1 / 2;
