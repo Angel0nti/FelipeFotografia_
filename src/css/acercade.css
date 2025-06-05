@@ -1,5 +1,58 @@
 .acerca {
-  background-color: yellowgreen;
+  background-color: var(--color-primary);
   grid-column: 1 / -1;
   grid-row: 5 / 6;
+  display: grid;
+  grid-template-columns: minmax(15rem, 1fr) minmax(20rem, 1fr);
+  justify-items: center;
+  align-items: center;
+  border-bottom: var(--color-border-light-bottom);
+  padding: 3rem;
+  margin-top: 10rem;
+  margin-bottom: 20rem;
+}
+.acerca__image {
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  display: grid;
+}
+.acerca__image--img {
+  width: 70%;
+  position: relative;
+  padding-top: calc(100% * 1 / 1);
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.acerca__image--img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.acerca__content {
+  grid-row: 1 / -1;
+  grid-column: 2 / 3;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.acerca__content--heading {
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
+}
+.acerca__paragraph {
+  text-align: justify;
+  margin-top: 2rem;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
 }

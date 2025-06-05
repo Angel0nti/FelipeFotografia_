@@ -22,48 +22,83 @@
     />
     <link rel="icon" href="./img/logo/Logo_estudio_invertido.avif" />
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- <script type="module" src="./js/script.js"></script> -->
+    <script type="module" src="./js/script.js"></script>
   </head>
   <body class="container">
-    <nav class="nav" id="nav">
+    <nav class="nav top" id="nav">
+      <div class="ham-menu ham" id="ham">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <figure class="nav__logo">
-        <img src="img/logo/logo-bg-off.avif" alt="Logo Felipe" />
+        <img
+          src="img/logo/logo-bg-off.avif"
+          alt="Logo Felipe"
+          id="logo"
+          loading="lazy"
+        />
       </figure>
+      <ul class="dropdown-menu" id="dropdown">
+        <li class="nav__li"><a href="#sesiones" class="nav__a">Sesiones</a></li>
+        <li class="nav__li"><a href="#eventos" class="nav__a">Eventos</a></li>
+        <li class="nav__li">
+          <a href="#about-me" class="nav__a">Quien soy</a>
+        </li>
+        <li class="nav__li"><a href="#galeria" class="nav__a">Galeria</a></li>
+        <li class="nav__li"><a href="#contacto" class="nav__a">Contacto</a></li>
+      </ul>
       <ul class="nav__ul">
         <li class="nav__li"><a href="#sesiones" class="nav__a">Sesiones</a></li>
         <li class="nav__li"><a href="#eventos" class="nav__a">Eventos</a></li>
         <li class="nav__li">
-          <a href="#acerca" class="nav__a">Quien soy</a>
+          <a href="#about-me" class="nav__a">Quien soy</a>
         </li>
         <li class="nav__li"><a href="#galeria" class="nav__a">Galeria</a></li>
         <li class="nav__li"><a href="#contacto" class="nav__a">Contacto</a></li>
       </ul>
     </nav>
-    <section class="hero">
+    <section class="section hero" id="hero">
       <div class="hero__background">
         <h1 class="hero__title">Felipe Ontiveros Fotografia</h1>
       </div>
     </section>
-    <section class="sliders">
+    <section class="section sliders" id="sesiones">
       <div class="slider__controls">
-        <button class="slider__controls--btn">Bodas</button>
-        <button class="slider__controls--btn">Exteriores</button>
-        <button class="slider__controls--btn">Graduaciones</button>
-        <button class="slider__controls--btn">Estudio</button>
+        <button
+          class="slider__controls--btn btn-image-slide"
+          data-category="weddings"
+        >
+          Bodas
+        </button>
+        <button
+          class="slider__controls--btn btn-image-slide"
+          data-category="exteriores"
+        >
+          Exteriores
+        </button>
+        <button
+          class="slider__controls--btn btn-image-slide"
+          data-category="graduaciones"
+        >
+          Graduaciones
+        </button>
+        <button
+          class="slider__controls--btn btn-image-slide"
+          data-category="retratos"
+        >
+          Estudio
+        </button>
       </div>
-      <div class="slider__images">
-        <figure class="slider__images--img1">
-          <img src="../static/grad/grad6.avif" alt="Boda 1" />
-        </figure>
-      </div>
-      <button class="slider__images--btn btn--left">
+      <div class="slider__images"></div>
+      <button class="slider__images--btn btn--left slider__btn--left">
         <svg class="slider__images--icon">
           <use
             xlink:href="img/icon-btns/symbol-defs.svg#icon-arrow-left2"
           ></use>
         </svg>
       </button>
-      <button class="slider__images--btn btn--right">
+      <button class="slider__images--btn btn--right slider__btn--right">
         <svg class="slider__images--icon">
           <use
             xlink:href="img/icon-btns/symbol-defs.svg#icon-arrow-right2"
@@ -71,9 +106,167 @@
         </svg>
       </button>
     </section>
-    <section class="eventos">Eventos</section>
-    <section class="acerca">Acerca</section>
-    <section class="gallery">Gallery</section>
-    <footer class="footer">Footer</footer>
+    <section class="section eventos" id="eventos">
+      <div class="eventos__images"></div>
+      <div class="eventos__text event-text-container">
+        <h2 class="eventos__text__heading">
+          &iexcl;Para todo tipo de ocasiones&excl;
+        </h2>
+        <ul class="eventos__text__ul">
+          <li class="eventos__text__ul--li">Deportes</li>
+          <li class="eventos__text__ul--li">Navidad</li>
+          <li class="eventos__text__ul--li">San Valentin</li>
+          <li class="eventos__text__ul--li">Negocios</li>
+          <li class="eventos__text__ul--li">Parejas</li>
+          <li class="eventos__text__ul--li">Mascotas</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section acerca" id="about-me">
+      <div class="acerca__content acerca-de-content">
+        <h2 class="acerca__content--heading">
+          &iexcl;La fotografia, mi pasión...&excl;
+        </h2>
+        <p class="acerca__paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsum
+          eaque dolorem id voluptas commodi numquam necessitatibus aperiam amet,
+          voluptate architecto, earum, sed fuga? Rerum maxime necessitatibus
+          voluptate iste laborum.
+        </p>
+      </div>
+      <div class="acerca__image">
+        <picture class="acerca__image--img">
+          <img
+            src="img/prof-pic/felipe-pic.avif"
+            alt="Felipe Foto Perfil"
+            id="about-me-img"
+          />
+        </picture>
+      </div>
+    </section>
+    <section class="section gallery" id="galeria">
+      <div class="bg-video">
+        <video
+          class="bg-video__content"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="img/video/preview.webp"
+        >
+          <source src="img/video/bg-video-grid.mp4" type="video/mp4" />
+          <source src="img/video/bg-video-grid.webm" type="video/webm" />
+          Your Browser is not supported!
+        </video>
+      </div>
+      <figure class="gallery__item gallery__item--1">
+        <img
+          src="img/grid/grid1.avif"
+          alt="Gallery image 1"
+          class="gallery__img"
+        />
+      </figure>
+      <figure class="gallery__item gallery__item--2">
+        <img
+          src="img/grid/grid2.avif"
+          alt="Gallery image 2"
+          class="gallery__img"
+        />
+      </figure>
+      <figure class="gallery__item gallery__item--3">
+        <img
+          src="img/grid/grid3.avif"
+          alt="Gallery image 3"
+          class="gallery__img"
+        />
+      </figure>
+      <figure class="gallery__item gallery__item--4">
+        <img
+          src="img/grid/grid4.avif"
+          alt="Gallery image 4"
+          class="gallery__img"
+        />
+      </figure>
+      <figure class="gallery__item gallery__item--5">
+        <img
+          src="img/grid/grid5.avif"
+          alt="Gallery image 5"
+          class="gallery__img"
+        />
+      </figure>
+      <figure class="gallery__item gallery__item--6">
+        <img
+          src="../static/ext/ext3.avif"
+          alt="Gallery image 6"
+          class="gallery__img"
+        />
+      </figure>
+      <figure class="gallery__item gallery__item--7">
+        <img
+          src="../static/ext/ext5.avif"
+          alt="Gallery image 7"
+          class="gallery__img"
+        />
+      </figure>
+      <figure class="gallery__item gallery__item--8">
+        <img
+          src="../static/eventos/event2.avif"
+          alt="Gallery image 8"
+          class="gallery__img"
+        />
+      </figure>
+    </section>
+    <footer class="section footer" id="contacto">
+      <h3 class="footer__heading">
+        &iexcl;Contactame en mis redes sociales&excl;
+      </h3>
+      <div class="footer__icons">
+        <div class="footer__icons--icon">
+          <a
+            href="https://www.instagram.com/felipe_ontiveros_fotografia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <svg class="footer__icons--icon1">
+              <use
+                xlink:href="img/icon-btns/symbol-defs.svg#icon-instagram"
+              ></use>
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer__icons--icon">
+          <a
+            href="https://m.me/pipe.ontiveros"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <svg class="footer__icons--icon2">
+              <use
+                xlink:href="img/icon-btns/symbol-defs.svg#icon-facebook2"
+              ></use>
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer__icons--icon">
+          <a
+            href="https://wa.me/526188156843"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <svg class="footer__icons--icon3">
+              <use
+                xlink:href="img/icon-btns/symbol-defs.svg#icon-whatsapp"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

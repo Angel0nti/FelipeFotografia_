@@ -9,6 +9,7 @@
   display: grid;
   place-items: center;
   position: relative;
+  margin-bottom: 10rem;
 }
 .hero__background {
   text-align: center;

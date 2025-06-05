@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "description": "Felipe Ontiveros Pagina de Fotografia",
   "scripts": {
-    "watch": "postcss src/css/style.css -o src/css/style.prefix.css -w",
-    "devserver": "live-server --browser=firefox",
-    "start": "npm-run-all --parallel devserver watch",
-    "prefix": "postcss src/css/style.css -o src/css/style.prefix.css",
-    "compress": "postcss src/css/style.prefix.css -o src/css/style.css",
-    "build": "npm-run-all prefix compress"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --dist-dir ./dist"
   },
   "author": "Angel Ontiveros",
   "license": "ISC",

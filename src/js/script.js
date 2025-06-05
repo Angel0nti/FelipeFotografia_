@@ -58,7 +58,7 @@ class StickyNav {
     window.removeEventListener('resize', this._updateMarginTop);
   }
 }
-new StickyNav('.nav', '.hero', '.nav__logo');
+new StickyNav('.nav', '.hero', '#logo');
 // const stickyNav = new StickyNav('.nav', '.hero');
 // stickyNav.destroy();
 
@@ -160,9 +160,9 @@ class EventRevealer extends SectionRevealer {
   }
 }
 
-new SectionRevealer('.section:not(#about-me):not(#eventos)');
-new AboutMeRevealer();
-new EventRevealer();
+// new SectionRevealer('.section:not(#about-me):not(#eventos)');
+// new AboutMeRevealer();
+// new EventRevealer();
 
 class SmoothScroller {
   constructor(linkSelector, navSelector) {
@@ -194,7 +194,7 @@ class SmoothScroller {
     }
   }
 }
-new SmoothScroller('.nav__link', '.nav');
+new SmoothScroller('.nav__a', '.nav');
 
 class ScrollReset {
   constructor() {
@@ -250,30 +250,36 @@ class ImageSlider {
 
   _renderSlides(images) {
     this.container.innerHTML = '';
-    this.currentSlide;
     this.currentImages = images;
+    this.currentSlide = 0;
 
-    images.forEach((src, i) => {
-      const slide = document.createElement('div');
-      slide.classList.add('slide');
-      if (window.innerWidth > 768) {
-        slide.style.transform = `translateX(${100 * i}%)`;
-      }
+    const figure = document.createElement('figure');
+    figure.classList.add('slider__images--img1');
 
-      const image = new Image();
-      image.dataset.src = src;
-      image.alt = 'slide';
-      image.loading = 'lazy';
-      image.width = 800;
-      image.height = 533;
-      image.classList.add('lazy-img');
+    const image = new Image();
+    image.dataset.src = images[0];
+    image.alt = `slide 1`;
+    image.loading = 'lazy';
+    image.width = 800;
+    image.height = 533;
+    image.classList.add('lazy-img');
 
-      slide.appendChild(image);
-      this.container.appendChild(slide);
-    });
+    figure.appendChild(image);
+    this.container.appendChild(figure);
+
+    this._observeImages(); // Lazy load
+  }
+
+  _updateSlide(index) {
+    const image = this.container.querySelector('img');
+    if (!image) return;
+
+    image.dataset.src = this.currentImages[index];
+    image.alt = `slide ${index + 1}`;
+    image.classList.add('lazy-img');
 
     this._observeImages();
-    this._moveToSlide(0);
+    this.currentSlide = index;
   }
 
   _observeImages() {
@@ -286,6 +292,7 @@ class ImageSlider {
           img.src = img.dataset.src;
           img.onload = () => {
             img.classList.remove('lazy-img');
+            img.classList.add('loaded');
           };
           observer.unobserve(img);
         });
@@ -299,16 +306,7 @@ class ImageSlider {
   }
 
   _moveToSlide(index) {
-    if (window.innerWidth > 768) {
-      const slides = this.container.querySelectorAll('.slide');
-      slides.forEach((slide, i) => {
-        const offset = 100 * (i - index);
-        slide.style.transform = `translateX(${offset}%)`;
-      });
-    } else {
-      this.container.style.transform = `translateX(-${100 * index}%)`;
-    }
-    this.currentSlide = index;
+    this._updateSlide(index);
   }
 
   _setupNavButtons() {
@@ -347,7 +345,7 @@ class ImageSlider {
   }
 }
 const slider = new ImageSlider({
-  containerSelector: '.slides-container',
+  containerSelector: '.slider__images',
   buttonsSelector: '.btn-image-slide',
   btnLeftSelector: '.slider__btn--left',
   btnRightSelector: '.slider__btn--right',
@@ -356,6 +354,7 @@ const slider = new ImageSlider({
     weddings: ['1.avif', '2.avif', '3.avif', '4.avif', '5.avif', '6.avif'].map(
       n => `bodas/boda${n}`
     ),
+
     exteriores: [
       '1.avif',
       '2.avif',
@@ -374,7 +373,7 @@ const slider = new ImageSlider({
       '4.avif',
       '5.avif',
       '6.avif',
-    ].map(n => `grad/grad${n}`),
+    ].map(n => `/grad/grad${n}`),
     retratos: [
       '1.avif',
       '2.avif',
@@ -385,58 +384,60 @@ const slider = new ImageSlider({
       '7.avif',
       '8.avif',
       '9.avif',
-    ].map(n => `estudio/est${n}`),
+    ].map(n => `/estudio/est${n}`),
   },
 });
 
 class EventSlider {
-  constructor({ containerSelector, images, interval = 1300 }) {
+  constructor({ containerSelector, images, interval = 1500 }) {
     this.container = document.querySelector(containerSelector);
     this.images = images;
     this.interval = interval;
     this.currentIndex = 0;
 
-    this._renderSlides();
+    if (!this.container || this.images.length === 0) return;
+
+    this._createImageElement();
     this._startAutoplay();
   }
 
-  _renderSlides() {
-    this.container.innerHTML = '';
-    this.slides = this.images.map(src => {
-      const slide = document.createElement('div');
-      slide.classList.add('slide-event');
+  _createImageElement() {
+    const picture = document.createElement('picture');
+    picture.classList.add('eventos__images--img');
 
-      const img = new Image();
-      img.src = src;
-      img.alt = 'event';
-      img.loading = 'lazy';
-      img.width = 800;
-      img.height = 533;
-      slide.appendChild(img);
-      this.container.appendChild(slide);
-      return slide;
-    });
+    this.imgElement = new Image();
+    this.imgElement.src = this.images[0];
+    this.imgElement.alt = 'Evento 1';
+    this.imgElement.id = 'slides-event-animation';
+    this.imgElement.loading = 'lazy';
+    this.imgElement.width = 800;
+    this.imgElement.height = 533;
 
-    this._moveToSlide(0);
-  }
-
-  _moveToSlide(index) {
-    this.slides.forEach((slide, i) => {
-      slide.style.transform = `translateX(${100 * (i - index)}%)`;
-    });
-    this.currentIndex = index;
+    picture.appendChild(this.imgElement);
+    this.container.appendChild(picture);
   }
 
   _startAutoplay() {
     this.timer = setInterval(() => {
-      const next = (this.currentIndex + 1) % this.slides.length;
-      this._moveToSlide(next);
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+      this._updateImage();
     }, this.interval);
+  }
+
+  _updateImage() {
+    const newSrc = this.images[this.currentIndex];
+    this.imgElement.classList.add('fade-out');
+
+    setTimeout(() => {
+      this.imgElement.src = newSrc;
+      this.imgElement.alt = `Evento ${this.currentIndex + 1}`;
+      this.imgElement.classList.remove('fade-out');
+    }, 200);
   }
 }
 
 const eventSlider = new EventSlider({
-  containerSelector: '.slides-event-container',
+  containerSelector: '.eventos__images',
   images: [
     '1.avif',
     '2.avif',
@@ -446,8 +447,8 @@ const eventSlider = new EventSlider({
     '6.avif',
     '7.avif',
     '8.avif',
-  ].map(n => `eventos/event${n}`),
-  interval: 1300,
+  ].map(n => `/eventos/event${n}`),
+  interval: 1500,
 });
 class HamburgerMenu {
   constructor({ hamSelector, menuSelector }) {
@@ -455,6 +456,7 @@ class HamburgerMenu {
     this.menu = document.querySelector(menuSelector);
 
     if (!this.hamMenu || !this.menu) return;
+
     this._addEventListeners();
   }
 
@@ -463,25 +465,25 @@ class HamburgerMenu {
       e.stopPropagation();
       this.hamMenu.classList.toggle('active');
       this.menu.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
     });
-
-    this.menu.addEventListener('click', e => e.stopPropagation());
 
     document.addEventListener('click', () => {
       if (this.menu.classList.contains('active')) {
         this._closeMenu();
       }
     });
+
+    this.menu.addEventListener('click', e => e.stopPropagation());
   }
 
   _closeMenu() {
     this.hamMenu.classList.remove('active');
     this.menu.classList.remove('active');
-    document.body.classList.remove('menu-open');
   }
 }
+
+// Inicializar
 const menu = new HamburgerMenu({
   hamSelector: '.ham-menu',
-  menuSelector: '.off-screen-menu',
+  menuSelector: '.dropdown-menu',
 });
