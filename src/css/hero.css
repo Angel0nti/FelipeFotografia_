@@ -1,0 +1,25 @@
+.hero {
+  background-color: aqua;
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  background-image: url(../img/hero-pic/humbe2.avif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.hero__background {
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transform: skewX(20deg);
+}
+.hero__title {
+  transform: skewX(-20deg);
+  font-size: 3rem;
+  font-weight: var(--font-weight-body);
+}

@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Felipe Fotografia</title>
     <meta
       name="description"
@@ -12,5 +24,56 @@
     <link rel="stylesheet" href="./css/style.css" />
     <!-- <script type="module" src="./js/script.js"></script> -->
   </head>
-  <body class="container"></body>
+  <body class="container">
+    <nav class="nav" id="nav">
+      <figure class="nav__logo">
+        <img src="img/logo/logo-bg-off.avif" alt="Logo Felipe" />
+      </figure>
+      <ul class="nav__ul">
+        <li class="nav__li"><a href="#sesiones" class="nav__a">Sesiones</a></li>
+        <li class="nav__li"><a href="#eventos" class="nav__a">Eventos</a></li>
+        <li class="nav__li">
+          <a href="#acerca" class="nav__a">Quien soy</a>
+        </li>
+        <li class="nav__li"><a href="#galeria" class="nav__a">Galeria</a></li>
+        <li class="nav__li"><a href="#contacto" class="nav__a">Contacto</a></li>
+      </ul>
+    </nav>
+    <section class="hero">
+      <div class="hero__background">
+        <h1 class="hero__title">Felipe Ontiveros Fotografia</h1>
+      </div>
+    </section>
+    <section class="sliders">
+      <div class="slider__controls">
+        <button class="slider__controls--btn">Bodas</button>
+        <button class="slider__controls--btn">Exteriores</button>
+        <button class="slider__controls--btn">Graduaciones</button>
+        <button class="slider__controls--btn">Estudio</button>
+      </div>
+      <div class="slider__images">
+        <figure class="slider__images--img1">
+          <img src="../static/grad/grad6.avif" alt="Boda 1" />
+        </figure>
+      </div>
+      <button class="slider__images--btn btn--left">
+        <svg class="slider__images--icon">
+          <use
+            xlink:href="img/icon-btns/symbol-defs.svg#icon-arrow-left2"
+          ></use>
+        </svg>
+      </button>
+      <button class="slider__images--btn btn--right">
+        <svg class="slider__images--icon">
+          <use
+            xlink:href="img/icon-btns/symbol-defs.svg#icon-arrow-right2"
+          ></use>
+        </svg>
+      </button>
+    </section>
+    <section class="eventos">Eventos</section>
+    <section class="acerca">Acerca</section>
+    <section class="gallery">Gallery</section>
+    <footer class="footer">Footer</footer>
+  </body>
 </html>

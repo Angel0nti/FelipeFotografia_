@@ -1,1 +1,61 @@
+:root {
+  /* Variables */
+  --color-primary: rgb(0, 0, 0);
+  --color-secondary: rgb(103, 102, 102);
+  --color-titles: #fff;
+  --color-texts: #e0e0e0;
+  --color-border-dark-bottom: #444444; /* gris medio oscuro */
+  --color-border-light-bottom: #666666; /* gris medio claro */
 
+  /* Fonts */
+  --font-family-heading: 'Montserrat', sans-serif;
+  --font-family-body: 'Lato', sans-serif;
+
+  /* Sizes */
+  --font-size-heading: 2.5rem; /* Main titles */
+  --font-size-subheading: 1.75rem; /* Subtitles */
+  --font-size-buttons-slider: 1.5rem;
+  --font-size-body: 1rem; /* Normal text */
+  --font-size-small: 0.875rem; /* small text or captions */
+
+  /*Weight fonts */
+  --font-weight-heading: 700; /* bold for titles */
+  --font-weight-body: 400; /* normal for texts */
+
+  /* line height */
+  --line-height-heading: 1.2; /* for titles */
+  --line-height-body: 1.5; /* for spans, p, li*/
+
+  /* hover in buttons */
+  --color-btn: #e0e0e0; /* gris claro */
+  --color-btn-hover: #ffffff; /* blanco puro */
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 10px/16px = 62.5% -> 1rem = 10px */
+}
+body {
+  font-family: var(--font-family-body);
+  color: var(--color-texts);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  background-color: var(--color-primary);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-rows:
+    6rem calc(100vh - 6rem) auto repeat(3, minmax(60vh, auto))
+    6rem;
+  gap: 1rem;
+  margin: 0 auto;
+}

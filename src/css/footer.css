@@ -1,0 +1,5 @@
+.footer {
+  background-color: darkgreen;
+  grid-column: 1 / -1;
+  grid-row: 7 / 8;
+}
