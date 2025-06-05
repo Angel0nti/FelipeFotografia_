@@ -8,6 +8,10 @@
   },
   "author": "Angel Ontiveros",
   "license": "ISC",
+  "staticFiles": {
+  "staticPath": "static",
+  "watcherGlob": "**"
+},
   "browserslist": "last 10 versions",
   "devDependencies": {
     "autoprefixer": "^10.4.21",
