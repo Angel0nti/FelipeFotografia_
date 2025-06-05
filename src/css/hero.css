@@ -1,5 +1,5 @@
 .hero {
-  background-color: aqua;
+  background-color: var(--color-primary);
   grid-column: 1 / -1;
   grid-row: 2 / 3;
   background-image: url(../img/hero-pic/humbe2.avif);
