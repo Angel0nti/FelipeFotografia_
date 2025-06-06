@@ -13,6 +13,15 @@
   margin-bottom: 20rem;
 }
 
+@media only screen and (max-width: 900px) {
+  .sliders {
+    margin-bottom: 5rem;
+  }
+  .slider__images {
+    margin-bottom: 5rem;
+  }
+}
+
 .slider__controls {
   display: grid;
   grid-column: 2 / 3;
@@ -35,7 +44,7 @@
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.1s ease-in-out;
 }
 
 .slider__controls--btn:hover {
@@ -72,11 +81,9 @@
   height: 100%;
   object-fit: contain;
   display: block;
-
-  /* Animación inicial */
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.1s ease;
 }
 
 .slider__images--img1 img.loaded {

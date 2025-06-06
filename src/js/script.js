@@ -105,7 +105,7 @@ class AboutMeRevealer extends SectionRevealer {
 
     const options = {
       root: null,
-      threshold: isMobile ? 0.9 : 0.1,
+      threshold: isMobile ? 0.1 : 0.1,
       rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -20% 0px',
     };
 
@@ -114,7 +114,6 @@ class AboutMeRevealer extends SectionRevealer {
     const imgObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        console.log('Hi');
 
         const text = this.sections[0].querySelector('.acerca-de-content');
         if (text) text.classList.add('animate-in');
@@ -139,7 +138,7 @@ class EventRevealer extends SectionRevealer {
 
     const options = {
       root: null,
-      threshold: isMobile ? 1 : 0.1,
+      threshold: isMobile ? 0.1 : 0.1,
       rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -20% 0px',
     };
 

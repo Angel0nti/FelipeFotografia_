@@ -42,6 +42,16 @@ html {
   box-sizing: border-box;
   font-size: 62.5%; /* 10px/16px = 62.5% -> 1rem = 10px */
 }
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 55%; /* 8px/16px = 50% -> 1rem = 8px */
+  }
+}
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 48%; /* 7.5px/16px = 50% -> 1rem = 7.5px */
+  }
+}
 body {
   font-family: var(--font-family-body);
   color: var(--color-texts);
@@ -54,11 +64,20 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-template-rows:
-    6rem calc(100vh - 6rem) auto repeat(3, minmax(60vh, auto))
+    6rem calc(150vh - 6rem) auto repeat(3, minmax(60vh, auto))
     6rem;
   gap: 1rem;
   margin: 0 auto;
 }
+
+@media only screen and (max-width: 900px) {
+  .container {
+    grid-template-rows:
+      6rem calc(100vh - 6rem) max-content repeat(3, minmax(60vh, auto))
+      6rem;
+  }
+}
+
 .section--hidden {
   opacity: 0;
   will-change: opacity, transform;

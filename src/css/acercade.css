@@ -11,6 +11,30 @@
   margin-top: 10rem;
   margin-bottom: 20rem;
 }
+@media only screen and (max-width: 900px) {
+  .acerca {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .acerca__image {
+    grid-row: auto !important;
+    grid-column: auto !important;
+    grid-row: 1;
+    grid-column: 1;
+    margin-top: 0;
+  }
+  .acerca__content {
+    grid-row: auto !important;
+    grid-column: auto !important;
+    grid-row: 2;
+    grid-column: 1;
+    padding: 1rem 3rem;
+  }
+}
 .acerca__image {
   grid-row: 1 / -1;
   grid-column: 1 / 2;
@@ -44,6 +68,7 @@
   display: grid;
   align-items: center;
   justify-items: center;
+  padding: 3.5rem;
 }
 .acerca__content--heading {
   font-size: var(--font-size-heading);

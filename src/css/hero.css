@@ -11,6 +11,11 @@
   position: relative;
   margin-bottom: 10rem;
 }
+@media only screen and (max-width: 900px) {
+  .hero {
+    margin-bottom: 5rem;
+  }
+}
 .hero__background {
   text-align: center;
   color: white;

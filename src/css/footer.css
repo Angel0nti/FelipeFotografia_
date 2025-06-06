@@ -11,6 +11,12 @@
   place-items: center;
   padding: 2rem;
 }
+
+@media only screen and (max-width: 900px) {
+  .footer {
+    padding: 0;
+  }
+}
 .footer__heading {
   font-size: var(--font-size-heading);
   grid-column: 1 / -1;
