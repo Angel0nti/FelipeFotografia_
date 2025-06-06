@@ -102,12 +102,11 @@
   box-shadow: none;
 }
 
-.slider__images--icon {
-  fill: #fff;
-  width: 3.5rem; /* 50% de 7rem */
+.slider__images--btn img {
+  width: 3.5rem;
   height: 3.5rem;
-  display: block;
 }
+
 .btn--left {
   grid-column: 1 / 2;
   justify-self: end;

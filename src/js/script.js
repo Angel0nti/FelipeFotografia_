@@ -1,24 +1,5 @@
 'strict';
 
-import iconURL from '../img/icon.svg';
-
-class Svg {
-  constructor() {
-    this._replaceUseHrefs();
-  }
-
-  _replaceUseHrefs() {
-    document.querySelectorAll('use').forEach(use => {
-      const href = use.getAttribute('href') || use.getAttribute('xlink:href');
-      if (href && href.startsWith('#')) {
-        use.setAttribute('xlink:href', `${iconURL}${href}`);
-      }
-    });
-  }
-}
-
-new Svg();
-
 class StickyNav {
   constructor(navSelector, headerSelector, navLogo) {
     this.nav = document.querySelector(navSelector);

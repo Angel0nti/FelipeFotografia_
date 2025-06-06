@@ -13,7 +13,7 @@
 }
 .footer__heading {
   font-size: var(--font-size-heading);
-  grid-column: 1 / -1; /* Se centra automáticamente */
+  grid-column: 1 / -1;
   display: grid;
   place-items: center;
   text-align: center;
@@ -30,17 +30,16 @@
 }
 .footer__icons--icon {
   width: 100%;
-  height: auto;
+  height: 20rem;
   display: grid;
   place-items: center;
 }
-.footer__icons--icon1,
-.footer__icons--icon2,
-.footer__icons--icon3 {
-  width: 6rem;
+.footer__icons--icon img {
+  width: 100%;
+  max-width: 6rem;
   height: auto;
-  fill: #fff;
 }
+
 .footer__icons--icon a {
   display: inline-block;
   text-decoration: none;
