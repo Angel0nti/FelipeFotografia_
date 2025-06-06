@@ -165,9 +165,16 @@
       </div>
       <figure class="gallery__item gallery__item--1">
         <img
-          src="img/grid/grid1.avif"
+          src="img/grid/grid1-600.avif"
           alt="Gallery image 1"
           class="gallery__img"
+          loading="lazy"
+          srcset="
+            img/grid/grid1-300.avif   300w,
+            img/grid/grid1-600.avif   600w,
+            img/grid/grid1-1200.avif 1200w
+          "
+          sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
         />
       </figure>
       <figure class="gallery__item gallery__item--2">
