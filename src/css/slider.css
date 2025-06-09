@@ -33,6 +33,12 @@
   margin-top: 4rem;
 }
 
+@media only screen and (max-width: 425px) {
+  .slider__controls {
+    width: 70%; /* Antes no estaba */
+  }
+}
+
 .slider__controls--btn {
   background-color: var(--color-primary);
   color: var(--color-texts);

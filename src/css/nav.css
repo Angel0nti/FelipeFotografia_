@@ -17,7 +17,6 @@
   background-color: var(--color-primary);
   animation: slideDown 0.3s linear;
   z-index: 999;
-  /* Asegurar que mantiene el layout del nav */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   align-content: center;
