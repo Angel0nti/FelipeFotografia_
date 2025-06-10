@@ -26,7 +26,7 @@
   padding: 0.5rem;
 }
 
-/* Cuando ham está activo, mostramos el menú */
+/* When ham is active, show the menu */
 .dropdown-menu.active {
   display: flex;
   top: calc(100% + 0);

@@ -1,9 +1,10 @@
 'strict';
 
+// Class to make the navigation bar sticky when scrolling past the hero section
 class StickyNav {
-  constructor(navSelector, headerSelector, navLogo) {
+  constructor(navSelector, heroSelector, navLogo) {
     this.nav = document.querySelector(navSelector);
-    this.header = document.querySelector(headerSelector);
+    this.hero = document.querySelector(heroSelector);
     this.navHeight = this.nav.getBoundingClientRect().height;
     this.navLogo = document.querySelector(navLogo);
     this.isSticky = false;
@@ -13,11 +14,13 @@ class StickyNav {
     this._bindResizeEvent();
   }
 
+  // Adjust the top margin of the hero section to prevent layout shift
   _updateMarginTop() {
-    this.header.style.marginTop =
+    this.hero.style.marginTop =
       window.innerWidth > 768 && this.isSticky ? `${this.navHeight}px` : null;
   }
 
+  // Callback for the IntersectionObserver — toggles sticky class based on visibility
   _handleIntersect = ([entry]) => {
     if (!entry.isIntersecting && !this.isSticky) {
       this.nav.classList.add('sticky');
@@ -30,6 +33,7 @@ class StickyNav {
     }
   };
 
+  // Initialize IntersectionObserver to track the hero/header section
   _initObserver() {
     this.observer = new IntersectionObserver(this._handleIntersect, {
       root: null,
@@ -39,10 +43,12 @@ class StickyNav {
     this.observer.observe(this.header);
   }
 
+  // Update margin on window resize
   _bindResizeEvent() {
     window.addEventListener('resize', () => this._updateMarginTop());
   }
 
+  // Scroll smoothly to the top when the logo is clicked
   _goToTop() {
     this.navLogo.addEventListener('click', () => {
       window.scrollTo({
@@ -52,8 +58,8 @@ class StickyNav {
     });
   }
 
+  // Cleanup: disconnect observer and remove resize event
   destroy() {
-    // Clear observer and event resize when needed
     this.observer.disconnect();
     window.removeEventListener('resize', this._updateMarginTop);
   }
@@ -62,19 +68,24 @@ new StickyNav('.nav', '.hero', '#logo');
 // const stickyNav = new StickyNav('.nav', '.hero');
 // stickyNav.destroy();
 
+// -----------------------------------------------------------------------------------------------------------------------------
+
+// Class to reveal sections when they come into view
 class SectionRevealer {
   constructor(sectionSelector, threshold = 0.4) {
     this.sections = document.querySelectorAll(sectionSelector);
     this.threshold = threshold;
 
-    this._initObserver();
-    this._hideSections();
+    this._initObserver(); // init observer that controls when to show the sections
+    this._hideSections(); // init hide sections
   }
 
+  // Hide all target sections initially
   _hideSections() {
     this.sections.forEach(section => section.classList.add('section--hidden'));
   }
 
+  // IntersectionObserver callback to reveal sections
   _onIntersect = (entries, observer) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -84,6 +95,7 @@ class SectionRevealer {
     });
   };
 
+  // Setup IntersectionObserver
   _initObserver() {
     this.observer = new IntersectionObserver(this._onIntersect, {
       root: null,
@@ -93,12 +105,15 @@ class SectionRevealer {
     this.sections.forEach(section => this.observer.observe(section));
   }
 }
+
+// Specialized section revealer for the About Me section
 class AboutMeRevealer extends SectionRevealer {
   constructor() {
     super('#about-me');
     this._observeImageForAnimation();
   }
 
+  // Triggers animation on text when image scrolls into view
   _observeImageForAnimation() {
     const img = this.sections[0].querySelector('#about-me-img');
     const isMobile = window.innerWidth <= 768;
@@ -126,12 +141,14 @@ class AboutMeRevealer extends SectionRevealer {
   }
 }
 
+// Specialized section revealer for the Events section
 class EventRevealer extends SectionRevealer {
   constructor() {
     super('#eventos');
     this._observeImageForAnimation();
   }
 
+  // Triggers animation on event description text when image scrolls into view
   _observeImageForAnimation() {
     const img = this.sections[0].querySelector('#slides-event-animation');
     const isMobile = window.innerWidth <= 768;
@@ -159,10 +176,12 @@ class EventRevealer extends SectionRevealer {
   }
 }
 
+// Initialize all section-related features
 new SectionRevealer('.section:not(#about-me):not(#eventos)');
 new AboutMeRevealer();
 new EventRevealer();
 
+// Class to enable smooth scrolling when clicking on navigation links
 class SmoothScroller {
   constructor(linkSelector, navSelector) {
     this.links = document.querySelectorAll(linkSelector);
@@ -177,6 +196,7 @@ class SmoothScroller {
     });
   }
 
+  // Scrolls to the linked section, offsetting for the nav height
   _handleClick(e) {
     e.preventDefault();
 
@@ -193,8 +213,10 @@ class SmoothScroller {
     }
   }
 }
+// Init
 new SmoothScroller('.nav__a', '.nav');
 
+// Class to force scroll to top on page load (useful for SPA or animated sites)
 class ScrollReset {
   constructor() {
     this._setScroollRestoration();
@@ -217,8 +239,12 @@ class ScrollReset {
     }, 0);
   }
 }
+// Init
 new ScrollReset();
 
+// ------------------------------------------------------------
+
+// Class for image sliders with lazy loading and category buttons
 class ImageSlider {
   constructor({
     containerSelector,
@@ -241,12 +267,14 @@ class ImageSlider {
     this._bindCategoryButtons();
     this._setupNavButtons();
 
+    // Load default category
     const defaultCategory = Object.keys(data)[0];
     if (defaultCategory) {
       this._renderSlides(data[defaultCategory]);
     }
   }
 
+  // Render initial image for selected category
   _renderSlides(images) {
     this.container.innerHTML = '';
     this.currentImages = images;
@@ -266,9 +294,10 @@ class ImageSlider {
     figure.appendChild(image);
     this.container.appendChild(figure);
 
-    this._observeImages(); // Lazy load
+    this._observeImages(); // Lazy load observer
   }
 
+  // Update to a specific slide index
   _updateSlide(index) {
     const image = this.container.querySelector('img');
     if (!image) return;
@@ -281,6 +310,7 @@ class ImageSlider {
     this.currentSlide = index;
   }
 
+  // Lazy loading images when in viewport
   _observeImages() {
     const lazyImages = this.container.querySelectorAll('.lazy-img');
     const observer = new IntersectionObserver(
@@ -304,21 +334,25 @@ class ImageSlider {
     lazyImages.forEach(img => observer.observe(img));
   }
 
+  // Move to the next slide
   _moveToSlide(index) {
     this._updateSlide(index);
   }
 
+  // Control of btn right and btn left
   _setupNavButtons() {
     this.btnRight.addEventListener('click', this._moveToRight.bind(this));
     this.btnLeft.addEventListener('click', this._moveToLeft.bind(this));
   }
 
+  //  Move to the next image
   _moveToRight() {
     if (this.currentImages.length === 0) return;
     const nextIndex = (this.currentSlide + 1) % this.currentImages.length;
     this._moveToSlide(nextIndex);
   }
 
+  // Move to the previous image
   _moveToLeft() {
     if (this.currentImages.length === 0) return;
     const prevIndex =
@@ -327,12 +361,14 @@ class ImageSlider {
     this._moveToSlide(prevIndex);
   }
 
+  // Buttons for category
   _bindCategoryButtons() {
     this.buttons.forEach(button => {
       button.addEventListener('click', this._btnToEachCategory.bind(this));
     });
   }
 
+  // Control of the changing of the image depending ot the category
   _btnToEachCategory(event) {
     const button = event.currentTarget;
     const category = button.dataset.category;
@@ -343,6 +379,8 @@ class ImageSlider {
     }
   }
 }
+
+// We init all with the date needed
 const slider = new ImageSlider({
   containerSelector: '.slider__images',
   buttonsSelector: '.btn-image-slide',
@@ -386,7 +424,9 @@ const slider = new ImageSlider({
     ].map(n => `/estudio/est${n}`),
   },
 });
+// ------------------------------------------------------------
 
+// Class for the animated event image slider
 class EventSlider {
   constructor({ containerSelector, images, interval = 1500 }) {
     this.container = document.querySelector(containerSelector);
@@ -400,6 +440,7 @@ class EventSlider {
     this._startAutoplay();
   }
 
+  // Create and append the first image element
   _createImageElement() {
     const picture = document.createElement('picture');
     picture.classList.add('eventos__images--img');
@@ -416,6 +457,7 @@ class EventSlider {
     this.container.appendChild(picture);
   }
 
+  // Automatically cycle through images
   _startAutoplay() {
     this.timer = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.images.length;
@@ -423,6 +465,7 @@ class EventSlider {
     }, this.interval);
   }
 
+  // Update image source and trigger fade animation
   _updateImage() {
     const newSrc = this.images[this.currentIndex];
     this.imgElement.classList.add('fade-out');
@@ -435,6 +478,7 @@ class EventSlider {
   }
 }
 
+// Init All
 const eventSlider = new EventSlider({
   containerSelector: '.eventos__images',
   images: [
@@ -449,6 +493,10 @@ const eventSlider = new EventSlider({
   ].map(n => `/eventos/event${n}`),
   interval: 1500,
 });
+
+// ------------------------------------------------------------
+
+// Class to handle hamburger menu behavior on mobile
 class HamburgerMenu {
   constructor({ hamSelector, menuSelector }) {
     this.hamMenu = document.querySelector(hamSelector);
@@ -459,6 +507,7 @@ class HamburgerMenu {
     this._addEventListeners();
   }
 
+  // Manage the click on the ham btn to make it active and show the menu or hide it
   _addEventListeners() {
     this.hamMenu.addEventListener('click', e => {
       e.stopPropagation();
@@ -466,6 +515,7 @@ class HamburgerMenu {
       this.menu.classList.toggle('active');
     });
 
+    // Close the menu while clicking on the webpage
     document.addEventListener('click', () => {
       if (this.menu.classList.contains('active')) {
         this._closeMenu();
@@ -475,13 +525,14 @@ class HamburgerMenu {
     this.menu.addEventListener('click', e => e.stopPropagation());
   }
 
+  // Close the menu
   _closeMenu() {
     this.hamMenu.classList.remove('active');
     this.menu.classList.remove('active');
   }
 }
 
-// Inicializar
+// Init
 const menu = new HamburgerMenu({
   hamSelector: '.ham-menu',
   menuSelector: '.dropdown-menu',
