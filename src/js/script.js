@@ -40,7 +40,7 @@ class StickyNav {
       threshold: 0,
       rootMargin: `${this.navHeight}px`,
     });
-    this.observer.observe(this.header);
+    this.observer.observe(this.hero);
   }
 
   // Update margin on window resize
