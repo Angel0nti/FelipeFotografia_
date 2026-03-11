@@ -450,6 +450,9 @@ class EventSlider {
 
     this.imgElement = new Image();
     this.imgElement.src = this.images[0];
+    this.imgElement.srcset = `${this.images[0].replace('.avif', '-300.avif')} 300w, ${this.images[0].replace('.avif', '-600.avif')} 600w, ${this.images[0]} 1200w`;
+    this.imgElement.sizes =
+      '(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px';
     this.imgElement.alt = 'Evento 1';
     this.imgElement.id = 'slides-event-animation';
     this.imgElement.loading = 'lazy';
@@ -475,6 +478,7 @@ class EventSlider {
 
     setTimeout(() => {
       this.imgElement.src = newSrc;
+      this.imgElement.srcset = `${newSrc.replace('.avif', '-300.avif')} 300w, ${newSrc.replace('.avif', '-600.avif')} 600w, ${newSrc} 1200w`;
       this.imgElement.alt = `Evento ${this.currentIndex + 1}`;
       this.imgElement.classList.remove('fade-out');
     }, 200);
