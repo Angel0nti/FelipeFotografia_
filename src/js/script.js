@@ -197,21 +197,6 @@ class SmoothScroller {
   }
 
   // Scrolls to the linked section, offsetting for the nav height
-  // _handleClick(e) {
-  //   e.preventDefault();
-
-  //   const targetId = e.currentTarget.getAttribute('href');
-  //   const targetEl = document.querySelector(targetId);
-
-  //   if (targetEl) {
-  //     const offsetTop = targetEl.offsetTop - this.nav.offsetHeight;
-
-  //     window.scrollTo({
-  //       top: offsetTop,
-  //       behavior: 'smooth',
-  //     });
-  //   }
-  // }
   _handleClick(e) {
     e.preventDefault();
 
@@ -401,7 +386,7 @@ class ImageSlider {
   }
 }
 
-// We init all with the date needed
+// We init all with the data needed
 const slider = new ImageSlider({
   containerSelector: '.slider__images',
   buttonsSelector: '.btn-image-slide',
