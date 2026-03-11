@@ -90,331 +90,333 @@
         <li class="nav__li"><a href="#contacto" class="nav__a">Contacto</a></li>
       </ul>
     </nav>
-    <section class="section hero" id="hero">
-      <div class="hero__background">
-        <h1 class="hero__title">Felipe Ontiveros Fotografia</h1>
-      </div>
-    </section>
-    <section class="section sliders" id="sesiones">
-      <div class="slider__controls">
-        <button
-          class="slider__controls--btn btn-image-slide"
-          data-category="weddings"
-        >
-          Bodas
+    <main>
+      <section class="section hero" id="hero">
+        <div class="hero__background">
+          <h1 class="hero__title">Felipe Ontiveros Fotografia</h1>
+        </div>
+      </section>
+      <section class="section sliders" id="sesiones">
+        <div class="slider__controls">
+          <button
+            class="slider__controls--btn btn-image-slide"
+            data-category="weddings"
+          >
+            Bodas
+          </button>
+          <button
+            class="slider__controls--btn btn-image-slide"
+            data-category="exteriores"
+          >
+            Exteriores
+          </button>
+          <button
+            class="slider__controls--btn btn-image-slide"
+            data-category="graduaciones"
+          >
+            Graduaciones
+          </button>
+          <button
+            class="slider__controls--btn btn-image-slide"
+            data-category="retratos"
+          >
+            Estudio
+          </button>
+        </div>
+        <div class="slider__images"></div>
+        <button class="slider__images--btn btn--left slider__btn--left">
+          <img src="./img/icon/icon-arrow-left2.svg" alt="Arrow Left icon" />
         </button>
-        <button
-          class="slider__controls--btn btn-image-slide"
-          data-category="exteriores"
-        >
-          Exteriores
+        <button class="slider__images--btn btn--right slider__btn--right">
+          <img src="./img/icon/icon-arrow-right2.svg" alt="Arrow Right icon" />
         </button>
-        <button
-          class="slider__controls--btn btn-image-slide"
-          data-category="graduaciones"
+      </section>
+      <section class="section eventos" id="eventos">
+        <div class="eventos__images"></div>
+        <div
+          class="eventos__text event-text-container"
+          id="slides-event-animation"
         >
-          Graduaciones
-        </button>
-        <button
-          class="slider__controls--btn btn-image-slide"
-          data-category="retratos"
-        >
-          Estudio
-        </button>
-      </div>
-      <div class="slider__images"></div>
-      <button class="slider__images--btn btn--left slider__btn--left">
-        <img src="./img/icon/icon-arrow-left2.svg" alt="Arrow Left icon" />
-      </button>
-      <button class="slider__images--btn btn--right slider__btn--right">
-        <img src="./img/icon/icon-arrow-right2.svg" alt="Arrow Right icon" />
-      </button>
-    </section>
-    <section class="section eventos" id="eventos">
-      <div class="eventos__images"></div>
-      <div
-        class="eventos__text event-text-container"
-        id="slides-event-animation"
-      >
-        <h2 class="eventos__text__heading">
-          &iexcl;Para todo tipo de ocasiones&excl;
-        </h2>
-        <ul class="eventos__text__ul">
-          <li class="eventos__text__ul--li">Deportes</li>
-          <li class="eventos__text__ul--li">Navidad</li>
-          <li class="eventos__text__ul--li">San Valentín</li>
-          <li class="eventos__text__ul--li">Negocios</li>
-          <li class="eventos__text__ul--li">Parejas</li>
-          <li class="eventos__text__ul--li">Mascotas</li>
-        </ul>
-      </div>
-    </section>
-    <section class="section acerca" id="about-me">
-      <div class="acerca__content acerca-de-content">
-        <h2 class="acerca__content--heading">
-          &iexcl;La fotografia, mi pasión...&excl;
-        </h2>
-        <p class="acerca__paragraph">
-          Mi nombre es Felipe Ontiveros Álvarez y la fotografía es más que un
-          trabajo para mí — es la forma en que veo el mundo. Cada sesión es una
-          oportunidad de capturar un momento único, una emoción genuina, un
-          recuerdo que dure para siempre. Me apasiona trabajar con personas y
-          hacer que se sientan cómodos frente al lente para obtener lo mejor de
-          cada toma.
-        </p>
-      </div>
-      <div class="acerca__image">
-        <picture class="acerca__image--img">
-          <source type="image/webp" srcset="img/prof-pic/felipe-pic.webp" />
-          <img
-            src="img/prof-pic/felipe-pic.avif"
-            alt="Felipe Foto Perfil"
-            id="about-me-img"
-          />
-        </picture>
-      </div>
-    </section>
-    <section class="section gallery" id="galeria">
-      <div class="bg-video">
-        <video
-          class="bg-video__content"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="none"
-          poster="img/video/preview.webp"
-        >
-          <source src="img/video/bg-video-grid.mp4" type="video/mp4" />
-          <source src="img/video/bg-video-grid.webm" type="video/webm" />
-          Your Browser is not supported!
-        </video>
-      </div>
-      <figure class="gallery__item gallery__item--1">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="
-              img/grid/grid1-300.avif   300w,
-              img/grid/grid1-600.avif   600w,
-              img/grid/grid1-1200.avif 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              img/grid/grid1-300.webp   300w,
-              img/grid/grid1-600.webp   600w,
-              img/grid/grid1-1200.webp 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <img
-            src="img/grid/grid1-600.avif"
-            alt="Gallery image 1"
-            class="gallery__img"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
-      <figure class="gallery__item gallery__item--2">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="
-              img/grid/grid2-300.avif   300w,
-              img/grid/grid2-600.avif   600w,
-              img/grid/grid2-1200.avif 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              img/grid/grid2-300.webp   300w,
-              img/grid/grid2-600.webp   600w,
-              img/grid/grid2-1200.webp 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <img
-            src="img/grid/grid2-600.avif"
-            alt="Gallery image 2"
-            class="gallery__img"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
-      <figure class="gallery__item gallery__item--3">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="
-              img/grid/grid3-300.avif   300w,
-              img/grid/grid3-600.avif   600w,
-              img/grid/grid3-1200.avif 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              img/grid/grid3-300.webp   300w,
-              img/grid/grid3-600.webp   600w,
-              img/grid/grid3-1200.webp 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <img
-            src="img/grid/grid3-600.avif"
-            alt="Gallery image 3"
-            class="gallery__img"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
-      <figure class="gallery__item gallery__item--4">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="
-              img/grid/grid4-300.avif   300w,
-              img/grid/grid4-600.avif   600w,
-              img/grid/grid4-1200.avif 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              img/grid/grid4-300.webp   300w,
-              img/grid/grid4-600.webp   600w,
-              img/grid/grid4-1200.webp 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <img
-            src="img/grid/grid4-600.avif"
-            alt="Gallery image 4"
-            class="gallery__img"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
-      <figure class="gallery__item gallery__item--5">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="
-              img/grid/grid5-300.avif   300w,
-              img/grid/grid5-600.avif   600w,
-              img/grid/grid5-1200.avif 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              img/grid/grid5-300.webp   300w,
-              img/grid/grid5-600.webp   600w,
-              img/grid/grid5-1200.webp 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <img
-            src="img/grid/grid5-600.avif"
-            alt="Gallery image 5"
-            class="gallery__img"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
-      <figure class="gallery__item gallery__item--6">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="
-              ../static/ext/ext3-300.avif   300w,
-              ../static/ext/ext3-600.avif   600w,
-              ../static/ext/ext3-1200.avif 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              ../static/ext/ext3-300.webp   300w,
-              ../static/ext/ext3-600.webp   600w,
-              ../static/ext/ext3-1200.webp 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <img
-            src="../static/ext/ext3-600.avif"
-            alt="Gallery image 6"
-            class="gallery__img"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
-      <figure class="gallery__item gallery__item--7">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="
-              ../static/ext/ext5-300.avif   300w,
-              ../static/ext/ext5-600.avif   600w,
-              ../static/ext/ext5-1200.avif 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              ../static/ext/ext5-300.webp   300w,
-              ../static/ext/ext5-600.webp   600w,
-              ../static/ext/ext5-1200.webp 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <img
-            src="../static/ext/ext5-600.avif"
-            alt="Gallery image 7"
-            class="gallery__img"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
-      <figure class="gallery__item gallery__item--8">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="
-              ../static/eventos/event2-300.avif   300w,
-              ../static/eventos/event2-600.avif   600w,
-              ../static/eventos/event2-1200.avif 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              ../static/eventos/event2-300.webp   300w,
-              ../static/eventos/event2-600.webp   600w,
-              ../static/eventos/event2-1200.webp 1200w
-            "
-            sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
-          />
-          <img
-            src="../static/eventos/event2-600.avif"
-            alt="Gallery image 8"
-            class="gallery__img"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
-    </section>
+          <h2 class="eventos__text__heading">
+            &iexcl;Para todo tipo de ocasiones&excl;
+          </h2>
+          <ul class="eventos__text__ul">
+            <li class="eventos__text__ul--li">Deportes</li>
+            <li class="eventos__text__ul--li">Navidad</li>
+            <li class="eventos__text__ul--li">San Valentín</li>
+            <li class="eventos__text__ul--li">Negocios</li>
+            <li class="eventos__text__ul--li">Parejas</li>
+            <li class="eventos__text__ul--li">Mascotas</li>
+          </ul>
+        </div>
+      </section>
+      <section class="section acerca" id="about-me">
+        <div class="acerca__content acerca-de-content">
+          <h2 class="acerca__content--heading">
+            &iexcl;La fotografia, mi pasión...&excl;
+          </h2>
+          <p class="acerca__paragraph">
+            Mi nombre es Felipe Ontiveros Álvarez y la fotografía es más que un
+            trabajo para mí — es la forma en que veo el mundo. Cada sesión es
+            una oportunidad de capturar un momento único, una emoción genuina,
+            un recuerdo que dure para siempre. Me apasiona trabajar con personas
+            y hacer que se sientan cómodos frente al lente para obtener lo mejor
+            de cada toma.
+          </p>
+        </div>
+        <div class="acerca__image">
+          <picture class="acerca__image--img">
+            <source type="image/webp" srcset="img/prof-pic/felipe-pic.webp" />
+            <img
+              src="img/prof-pic/felipe-pic.avif"
+              alt="Felipe Foto Perfil"
+              id="about-me-img"
+            />
+          </picture>
+        </div>
+      </section>
+      <section class="section gallery" id="galeria">
+        <div class="bg-video">
+          <video
+            class="bg-video__content"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="none"
+            poster="img/video/preview.webp"
+          >
+            <source src="img/video/bg-video-grid.mp4" type="video/mp4" />
+            <source src="img/video/bg-video-grid.webm" type="video/webm" />
+            Your Browser is not supported!
+          </video>
+        </div>
+        <figure class="gallery__item gallery__item--1">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                img/grid/grid1-300.avif   300w,
+                img/grid/grid1-600.avif   600w,
+                img/grid/grid1-1200.avif 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                img/grid/grid1-300.webp   300w,
+                img/grid/grid1-600.webp   600w,
+                img/grid/grid1-1200.webp 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <img
+              src="img/grid/grid1-600.avif"
+              alt="Gallery image 1"
+              class="gallery__img"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+        <figure class="gallery__item gallery__item--2">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                img/grid/grid2-300.avif   300w,
+                img/grid/grid2-600.avif   600w,
+                img/grid/grid2-1200.avif 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                img/grid/grid2-300.webp   300w,
+                img/grid/grid2-600.webp   600w,
+                img/grid/grid2-1200.webp 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <img
+              src="img/grid/grid2-600.avif"
+              alt="Gallery image 2"
+              class="gallery__img"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+        <figure class="gallery__item gallery__item--3">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                img/grid/grid3-300.avif   300w,
+                img/grid/grid3-600.avif   600w,
+                img/grid/grid3-1200.avif 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                img/grid/grid3-300.webp   300w,
+                img/grid/grid3-600.webp   600w,
+                img/grid/grid3-1200.webp 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <img
+              src="img/grid/grid3-600.avif"
+              alt="Gallery image 3"
+              class="gallery__img"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+        <figure class="gallery__item gallery__item--4">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                img/grid/grid4-300.avif   300w,
+                img/grid/grid4-600.avif   600w,
+                img/grid/grid4-1200.avif 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                img/grid/grid4-300.webp   300w,
+                img/grid/grid4-600.webp   600w,
+                img/grid/grid4-1200.webp 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <img
+              src="img/grid/grid4-600.avif"
+              alt="Gallery image 4"
+              class="gallery__img"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+        <figure class="gallery__item gallery__item--5">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                img/grid/grid5-300.avif   300w,
+                img/grid/grid5-600.avif   600w,
+                img/grid/grid5-1200.avif 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                img/grid/grid5-300.webp   300w,
+                img/grid/grid5-600.webp   600w,
+                img/grid/grid5-1200.webp 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <img
+              src="img/grid/grid5-600.avif"
+              alt="Gallery image 5"
+              class="gallery__img"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+        <figure class="gallery__item gallery__item--6">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                ../static/ext/ext3-300.avif   300w,
+                ../static/ext/ext3-600.avif   600w,
+                ../static/ext/ext3-1200.avif 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                ../static/ext/ext3-300.webp   300w,
+                ../static/ext/ext3-600.webp   600w,
+                ../static/ext/ext3-1200.webp 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <img
+              src="../static/ext/ext3-600.avif"
+              alt="Gallery image 6"
+              class="gallery__img"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+        <figure class="gallery__item gallery__item--7">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                ../static/ext/ext5-300.avif   300w,
+                ../static/ext/ext5-600.avif   600w,
+                ../static/ext/ext5-1200.avif 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                ../static/ext/ext5-300.webp   300w,
+                ../static/ext/ext5-600.webp   600w,
+                ../static/ext/ext5-1200.webp 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <img
+              src="../static/ext/ext5-600.avif"
+              alt="Gallery image 7"
+              class="gallery__img"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+        <figure class="gallery__item gallery__item--8">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                ../static/eventos/event2-300.avif   300w,
+                ../static/eventos/event2-600.avif   600w,
+                ../static/eventos/event2-1200.avif 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                ../static/eventos/event2-300.webp   300w,
+                ../static/eventos/event2-600.webp   600w,
+                ../static/eventos/event2-1200.webp 1200w
+              "
+              sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+            />
+            <img
+              src="../static/eventos/event2-600.avif"
+              alt="Gallery image 8"
+              class="gallery__img"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+      </section>
+    </main>
     <footer class="section footer" id="contacto">
       <h3 class="footer__heading">
         &iexcl;Buscame en mis redes sociales&excl;
