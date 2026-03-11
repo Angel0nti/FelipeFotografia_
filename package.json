@@ -26,6 +26,7 @@
   "dependencies": {
     "core-js": "^3.42.0",
     "regenerator-runtime": "^0.14.1",
+    "sharp": "^0.34.5",
     "svgo": "^3.3.2"
   }
 }

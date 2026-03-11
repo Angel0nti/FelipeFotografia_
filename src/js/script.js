@@ -120,7 +120,6 @@ class AboutMeRevealer extends SectionRevealer {
 
     const options = {
       root: null,
-      // threshold: isMobile ? 0.1 : 0.1,
       threshold: isMobile ? 0.05 : 0.1,
       rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -20% 0px',
     };
@@ -156,7 +155,6 @@ class EventRevealer extends SectionRevealer {
 
     const options = {
       root: null,
-      // threshold: isMobile ? 0.1 : 0.1,
       threshold: isMobile ? 0.05 : 0.1,
       rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -20% 0px',
     };
@@ -287,7 +285,9 @@ class ImageSlider {
 
     const image = new Image();
     image.dataset.src = images[0];
-    image.alt = `slide 1`;
+    image.dataset.srcset = `${images[0].replace('.avif', '-300.avif')} 300w, ${images[0].replace('.avif', '-600.avif')} 600w, ${images[0]} 1200w`;
+    image.sizes = '(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px';
+    image.alt = 'slide 1';
     image.loading = 'lazy';
     image.width = 800;
     image.height = 533;
@@ -296,7 +296,7 @@ class ImageSlider {
     figure.appendChild(image);
     this.container.appendChild(figure);
 
-    this._observeImages(); // Lazy load observer
+    this._observeImages();
   }
 
   // Update to a specific slide index
@@ -305,6 +305,7 @@ class ImageSlider {
     if (!image) return;
 
     image.dataset.src = this.currentImages[index];
+    image.dataset.srcset = `${this.currentImages[index].replace('.avif', '-300.avif')} 300w, ${this.currentImages[index].replace('.avif', '-600.avif')} 600w, ${this.currentImages[index]} 1200w`;
     image.alt = `slide ${index + 1}`;
     image.classList.add('lazy-img');
 
@@ -321,6 +322,7 @@ class ImageSlider {
           if (!entry.isIntersecting) return;
           const img = entry.target;
           img.src = img.dataset.src;
+          img.srcset = img.dataset.srcset;
           img.onload = () => {
             img.classList.remove('lazy-img');
             img.classList.add('loaded');
