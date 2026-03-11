@@ -82,6 +82,7 @@ body {
   opacity: 0;
   will-change: opacity, transform;
   transform: translateY(5rem);
-  transition: opacity 0.8s ease-out,
+  transition:
+    opacity 0.8s ease-out,
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }

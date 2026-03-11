@@ -10,7 +10,7 @@
   place-items: center;
   border-bottom: var(--color-border-light-bottom);
   margin-top: 10rem;
-  margin-bottom: 20rem;
+  margin-bottom: 10rem;
 }
 
 @media only screen and (max-width: 900px) {
@@ -89,7 +89,9 @@
   display: block;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.5s ease, transform 0.1s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .slider__images--img1 img.loaded {

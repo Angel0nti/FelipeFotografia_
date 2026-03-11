@@ -1,4 +1,4 @@
-'strict';
+'use strict';
 
 // Class to make the navigation bar sticky when scrolling past the hero section
 class StickyNav {
@@ -120,7 +120,8 @@ class AboutMeRevealer extends SectionRevealer {
 
     const options = {
       root: null,
-      threshold: isMobile ? 0.1 : 0.1,
+      // threshold: isMobile ? 0.1 : 0.1,
+      threshold: isMobile ? 0.05 : 0.1,
       rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -20% 0px',
     };
 
@@ -155,7 +156,8 @@ class EventRevealer extends SectionRevealer {
 
     const options = {
       root: null,
-      threshold: isMobile ? 0.1 : 0.1,
+      // threshold: isMobile ? 0.1 : 0.1,
+      threshold: isMobile ? 0.05 : 0.1,
       rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -20% 0px',
     };
 
@@ -329,7 +331,7 @@ class ImageSlider {
       {
         root: null,
         threshold: 0.1,
-      }
+      },
     );
     lazyImages.forEach(img => observer.observe(img));
   }
@@ -389,9 +391,8 @@ const slider = new ImageSlider({
 
   data: {
     weddings: ['1.avif', '2.avif', '3.avif', '4.avif', '5.avif', '6.avif'].map(
-      n => `bodas/boda${n}`
+      n => `bodas/boda${n}`,
     ),
-
     exteriores: [
       '1.avif',
       '2.avif',
