@@ -197,6 +197,21 @@ class SmoothScroller {
   }
 
   // Scrolls to the linked section, offsetting for the nav height
+  // _handleClick(e) {
+  //   e.preventDefault();
+
+  //   const targetId = e.currentTarget.getAttribute('href');
+  //   const targetEl = document.querySelector(targetId);
+
+  //   if (targetEl) {
+  //     const offsetTop = targetEl.offsetTop - this.nav.offsetHeight;
+
+  //     window.scrollTo({
+  //       top: offsetTop,
+  //       behavior: 'smooth',
+  //     });
+  //   }
+  // }
   _handleClick(e) {
     e.preventDefault();
 
@@ -204,7 +219,9 @@ class SmoothScroller {
     const targetEl = document.querySelector(targetId);
 
     if (targetEl) {
-      const offsetTop = targetEl.offsetTop - this.nav.offsetHeight;
+      const navHeight = this.nav.getBoundingClientRect().height;
+      const offsetTop =
+        targetEl.getBoundingClientRect().top + window.scrollY - navHeight;
 
       window.scrollTo({
         top: offsetTop,
