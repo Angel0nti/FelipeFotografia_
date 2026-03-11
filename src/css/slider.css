@@ -47,7 +47,6 @@
   padding: 1rem;
   font-size: var(--font-size-buttons-slider);
   width: 100%;
-  white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
